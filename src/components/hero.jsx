@@ -13,19 +13,24 @@ const hero = () => {
     </Text>
     <Flex justifyContent="center" alignItems="center" pt="90px">
       <Box boxSize='sm' >
-        <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />          
+        <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+        <Text textAlign="center">Witches of the Wood</Text>          
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+        <Text textAlign="center">Witches of the Wood</Text>  
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+        <Text textAlign="center">Witches of the Wood</Text>  
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+        <Text textAlign="center">Witches of the Wood</Text>  
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+        <Text textAlign="center">Witches of the Wood</Text>  
       </Box>
 
     </Flex>
