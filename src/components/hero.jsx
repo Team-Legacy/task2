@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, Text } from "@chakra-ui/react"
-import { Image,Flex } from '@chakra-ui/react'
+import { Box, Text,Image,Flex,Stack,Button } from "@chakra-ui/react"
+
+
 
 const hero = () => {
   return (
@@ -11,32 +12,70 @@ const hero = () => {
     <Text color="black"fontSize="30px" fontWeight="md" pl="50px">
       upload your files
     </Text>
-    <Flex justifyContent="center" alignItems="center" pt="90px">
+    <Flex justifyContent="center" alignItems="center" pt="90px" flexWrap="wrap">
       <Box boxSize='sm' >
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
-        <Text textAlign="center">Witches of the Wood</Text>          
+        <Text textAlign="center" pt="40px">Witches of the Wood</Text>
+        <Stack spacing={4} direction='row' align='center' justify="center">
+            <Button colorScheme='teal' size='lg' mt="40px">
+              Read Through 
+            </Button>
+
+          </Stack>          
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
-        <Text textAlign="center">Witches of the Wood</Text>  
+        <Text textAlign="center" pt="40px">Witches of the Wood</Text>
+        <Stack spacing={4} direction='row' align='center' justify="center">
+            <Button colorScheme='teal' size='lg' mt="40px">
+              Read Through 
+            </Button>
+
+          </Stack>    
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
-        <Text textAlign="center">Witches of the Wood</Text>  
+        <Text textAlign="center" pt="40px">Witches of the Wood</Text>
+        <Stack spacing={4} direction='row' align='center' justify="center">
+            <Button colorScheme='teal' size='lg' mt="40px">
+              Read Through 
+            </Button>
+
+          </Stack>    
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
-        <Text textAlign="center">Witches of the Wood</Text>  
+        <Text textAlign="center" pt="40px">Witches of the Wood</Text>
+        <Stack spacing={4} direction='row' align='center' justify="center">
+            <Button colorScheme='teal' size='lg' mt="40px">
+              Read Through 
+            </Button>
+
+          </Stack>    
       </Box>
       <Box boxSize='sm'>
         <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
-        <Text textAlign="center">Witches of the Wood</Text>  
+        <Text textAlign="center" pt="40px">Witches of the Wood</Text>
+        <Stack spacing={4} direction='row' align='center' justify="center">
+            <Button colorScheme='teal' size='lg' mt="40px">
+              Read Through 
+            </Button>
+
+          </Stack>    
       </Box>
 
     </Flex>
+
+    
+
+
+  
+
+   
       
      
     </>
+    
   )
 }
 
