@@ -1,4 +1,6 @@
 import React from 'react'
+import '@fontsource/raleway/700.css'
+import '@fontsource/open-sans/700.css'
 import {
   Box,
   Flex,
@@ -8,6 +10,8 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Text,
+  Heading,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import Button from './button';
@@ -24,7 +28,8 @@ const NavLink = ({ children }) => (
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
     href={'#'}>
-    {children}
+    <Text>{children}</Text>
+    {/* {children} */}
   </Link>
 );
 
@@ -34,7 +39,7 @@ const Navbar = () => {
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'} p={10}>
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -42,9 +47,14 @@ const Navbar = () => {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+          {/* <HStack spacing={8} alignItems={'center'}>
+            
+          </HStack> */}
+          <Link href='/' fontSize={'3xl'}>
+            <Heading>Navo</Heading>
+          </Link>
             <HStack
+              fontSize={'xl'}
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
@@ -52,9 +62,8 @@ const Navbar = () => {
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </HStack>
-          </HStack>
           <Flex alignItems={'center'}>
-            <Button children="Connect wallet" />
+            <Button name="Connect wallet" />
           </Flex>
         </Flex>
 

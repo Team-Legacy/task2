@@ -1,18 +1,18 @@
 import React from 'react'
 import { Button } from '@chakra-ui/react';
 
-const button = ({children}) => {
+const button = ({name}) => {
   return (
     <div>
         <Button 
-              bg="brand.700" color="white" 
+              bg="orange.700" color="white" 
               size="md" 
             //   onClick={handleLogin}
               _hover={{
-                backgroundColor: "brand.600"
+                bg: "orange.600"
               }}
             >
-              {children}
+              {name}
             </Button>
     </div>
   )

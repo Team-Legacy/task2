@@ -1,50 +1,55 @@
 import {
-    Flex,
-    Container,
-    Heading,
-    Stack,
-    Text,
-    Button,
-  } from '@chakra-ui/react';
-  
-  export default function HeroSection() {
-    return (
-      <Container maxW={'5xl'}>
-        <Stack
-          textAlign={'center'}
-          align={'center'}
-          spacing={{ base: 8, md: 10 }}
-          py={{ base: 20, md: 28 }}>
-          <Heading
-            fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}>
-            Meeting scheduling{' '}
-            <Text as={'span'} color={'orange.400'}>
-              made easy
+  // Button,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
+import Hero from '../assets/undraw_online_organizer_re_156n.svg'
+import Button from './button'
+export default function HeroSection() {
+  return (
+    <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+      <Flex p={8} flex={1} align={'center'} justify={'center'}>
+        <Stack spacing={6} w={'full'} maxW={'lg'}>
+          <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+            <Text
+              as={'span'}
+              position={'relative'}
+              _after={{
+                content: "''",
+                width: 'full',
+                height: useBreakpointValue({ base: '20%', md: '30%' }),
+                position: 'absolute',
+                bottom: 1,
+                left: 0,
+                // bg: 'orange.400',
+                zIndex: -1,
+              }}>
+              Develop your
             </Text>
+            <br />{' '}
+            <Text color={'orange.400'} as={'span'}>
+              Emaginatioin
+            </Text>{' '}
           </Heading>
-          <Text color={'gray.500'} maxW={'3xl'}>
-            Never miss a meeting. Never be late for one too. Keep track of your
-            meetings and receive smart reminders in appropriate times. Read your
-            smart “Daily Agenda” every morning.
+          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
+          A Decentralized Library, that allows users to upload files, retrieve files, share files with other users.
           </Text>
-          <Stack spacing={6} direction={'row'}>
-            <Button
-              rounded={'full'}
-              px={6}
-              colorScheme={'orange'}
-              bg={'orange.400'}
-              _hover={{ bg: 'orange.500' }}>
-              Get started
-            </Button>
-            <Button rounded={'full'} px={6}>
-              Learn more
-            </Button>
+          <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+            <Button name={"Get Started"} />
           </Stack>
-          <Flex w={'full'}>
-          </Flex>
         </Stack>
-      </Container>
-    );
-  }
+      </Flex>
+      <Flex flex={1}>
+        <Image
+          alt={'Login Image'}
+          objectFit={'contain'}
+          src={Hero}
+        />
+      </Flex>
+    </Stack>
+  )
+}

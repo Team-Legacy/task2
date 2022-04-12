@@ -11,6 +11,10 @@ const theme = extendTheme({
       800: '#153e75',
       700: '#2a69ac',
     },
+    fonts: {
+      heading: 'Open Sans, sans-serif',
+      body: 'Raleway, sans-serif',
+    },
   },
   config: {
     initialColorMode: 'dark',
