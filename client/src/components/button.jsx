@@ -1,13 +1,13 @@
 import React from 'react'
 import { Button } from '@chakra-ui/react';
 
-const button = ({name}) => {
+const button = ({name,click, px}) => {
   return (
     <div>
         <Button 
               bg="orange.700" color="white" 
               size="md" 
-            //   onClick={handleLogin}
+              onClick={click}
               _hover={{
                 bg: "orange.600"
               }}

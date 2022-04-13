@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Footer, HeroSection, Navbar } from './components';
+import { ArticleCard, BookCard, Footer, HeroSection, Navbar } from './components';
 
 
 const App = () => {
@@ -10,6 +10,8 @@ const App = () => {
       <Navbar />
         <Routes>
           <Route path="/" element={<HeroSection />} />
+          <Route path="/article" element={<ArticleCard />} />
+          <Route path="/book" element={<BookCard />} />
         </Routes>
         <Footer />
       </BrowserRouter>

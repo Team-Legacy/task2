@@ -11,6 +11,7 @@ import '@fontsource/open-sans/700.css'
 export default function Footer() {
   return (
     <Box
+      mt={10}
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Box py={10}>
