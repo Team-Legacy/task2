@@ -40,7 +40,10 @@ const Navbar = () => {
           {/* <HStack spacing={8} alignItems={'center'}>
             
           </HStack> */}
-          <Link href='/' fontSize={'3xl'}>
+          <Link href='/' fontSize={'3xl'} _hover={{
+							textDecoration: "none",
+							color: "gray.500",
+						}}>
             <Heading>Navo</Heading>
           </Link>
             <HStack
