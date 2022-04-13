@@ -83,7 +83,7 @@ export default function HeroSection() {
               </Heading>
               <br />{' '}
               <Heading color={'orange.400'} as={'span'}>
-                Emaginatioin
+                Emagination
               </Heading>{' '}
             </Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.200'}>
