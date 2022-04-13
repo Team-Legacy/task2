@@ -62,9 +62,9 @@ export default function HeroSection() {
   ]);
 
   return (
-    <Box px={8}>
+    <Box>
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }} width={'full'}>
-        <Flex py={8} px={8} flex={1} align={'center'} justify={'space-between'}>
+        <Flex py={8} px={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
               <Heading
@@ -83,7 +83,7 @@ export default function HeroSection() {
               </Heading>
               <br />{' '}
               <Heading color={'orange.400'} as={'span'}>
-                Emaginatioin
+                Emagination
               </Heading>{' '}
             </Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.200'}>
@@ -119,9 +119,9 @@ export default function HeroSection() {
           </Flex>
         </Flex>
       </Stack>
-      <Heading p={8}>Articles</Heading>
+      <Heading py={8} px={{ base: '12px', md: '18px', lg: '30px' }}>Articles</Heading>
       <ArticleCard />
-      <Heading p={8}>Books</Heading>
+      <Heading py={8} px={{ base: '12px', md: '18px', lg: '30px' }}>Books</Heading>
       <BookCard />
     </Box>
   )

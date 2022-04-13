@@ -10,12 +10,12 @@ import Card from './BCard';
 import Button from './button';
 import Form from './containers/Form';
 
-export default function ArticleCard() {
+export default function BookCard() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Stack>
-      <Box mx={8}>
+    <Stack px={4} w={'full'}>
+      <Box px={{ base: '4px', md: '18px'}}>
         <Button name={'Upload'} click={onOpen} />
       </Box>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -28,7 +28,7 @@ export default function ArticleCard() {
           </ModalBody>
         </ModalContent>
       </Modal>
-      <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} px={10} gap={4}>
+      <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} gap={4}>
         <Card />
         <Card />
         <Card />
