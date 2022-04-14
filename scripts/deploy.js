@@ -15,7 +15,7 @@ async function main() {
 
   // We get the contract to deploy
   const DFtp = await hre.ethers.getContractFactory("DFtp");
-  const dFtp = await DFtp.deploy("Hello, Team Legacy! Contract deployment successful");
+  const dFtp = await DFtp.deploy();
 
   await dFtp.deployed();
 
