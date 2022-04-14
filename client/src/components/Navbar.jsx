@@ -14,7 +14,7 @@ import {
   Heading,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import Button from './button';
+import Button from './LoginButton';
 
 const Links = [
   {a: '/', text: 'Home'},
@@ -60,6 +60,7 @@ const Navbar = () => {
                     textDecoration: 'none',
                     bg: 'gray.700',
                   }}
+                  key={link.text}
                   href={link.a}>
                   <Text>{link.text}</Text>
                 </Link>

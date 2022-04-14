@@ -1,6 +1,6 @@
 export {default as Navbar} from './Navbar';
 export {default as Footer} from './Footer';
-export {default as button} from './button';
+export {default as LoginButton} from './LoginButton';
 export {default as HeroSection} from './HeroSection';
 export {default as ArticleCard} from './ArticleCard';
 export {default as BookCard} from './BookCard';

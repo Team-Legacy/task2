@@ -6,12 +6,12 @@ import {
   Image,
   Stack,
   Text,
+  Button,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import Hero from '../assets/undraw_online_organizer_re_156n.svg'
 import Upload from '../assets/undraw_upload_re_pasx.svg';
 import Share from '../assets/undraw_share_re_9kfx.svg';
-import Button from './button'
 import { useEffect, useRef, useState,useCallback } from 'react';
 import ArticleCard from './ArticleCard';
 import BookCard  from './BookCard';
@@ -96,7 +96,15 @@ export default function HeroSection() {
               >{newText}</Text>
             </Text>
             <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-              <Button name={"Get Started"} />
+            <Button 
+              bg="orange.700" color="white" 
+              size="md" 
+              _hover={{
+                bg: "orange.600"
+              }}
+            >
+              Get Started
+            </Button>
             </Stack>
           </Stack>
         </Flex>

@@ -12,7 +12,7 @@ import {
     VStack,
   } from '@chakra-ui/react';
   import React from 'react';
-
+//   import { useAuth } from '../../context/AuthContext';
 
   export default function Form() {
   
@@ -47,9 +47,16 @@ import {
                             />
                         </FormControl>
                         <FormControl isRequired>
+                            <FormLabel>Article URL</FormLabel>
+
+                            <InputGroup>
+                                <Input type="url" name="url" placeholder="Your URL" />
+                            </InputGroup>
+                        </FormControl>
+                        <FormControl isRequired>
                             <FormLabel>Insert Image</FormLabel>
                             <InputGroup>
-                                <Input type="file" border={'none'} />
+                                <Input type="file" border={'none'} name="file" />
                             </InputGroup>
                         </FormControl>
 

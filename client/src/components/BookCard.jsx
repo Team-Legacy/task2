@@ -5,9 +5,10 @@ import { SimpleGrid, Stack, useDisclosure,
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  Box} from '@chakra-ui/react';
+  Box,
+  Button} from '@chakra-ui/react';
 import Card from './BCard';
-import Button from './button';
+// import Button from './button';
 import Form from './containers/Form';
 
 export default function BookCard() {
@@ -16,7 +17,17 @@ export default function BookCard() {
   return (
     <Stack px={4} w={'full'}>
       <Box px={{ base: '4px', md: '18px'}}>
-        <Button name={'Upload'} click={onOpen} />
+        <Button 
+          bg="orange.700" color="white" 
+          onClick={onOpen}
+          size="md" 
+          _hover={{
+            bg: "orange.600"
+
+          }}
+        >
+          Upload
+        </Button>
       </Box>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
