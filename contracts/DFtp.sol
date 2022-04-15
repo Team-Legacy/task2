@@ -43,7 +43,7 @@ contract DFtp {
             _sharedPeers,
             _createdAt
         );
-        //i would save this to my db
+        //i would save this to myStorage
         myStorage.push(myData);
     }
 
