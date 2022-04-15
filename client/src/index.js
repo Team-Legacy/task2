@@ -24,8 +24,8 @@ const theme = extendTheme({
   }
 })
 
-const APP_ID = "Q5w4ViN0PE1P7JvLi3Lr1eJ2q7nJQ9Gzj8gh5xM0";
-const SERVER_URL = "https://9twp7uqapae7.usemoralis.com:2053/server";
+const APP_ID = process.envREACT_APP_MORALIS_APPLICATION_ID;
+const SERVER_URL = process.env.REACT_APP_MORALIS_SERVER_URL;
 
 ReactDOM.render(
     <ChakraProvider theme={theme}>

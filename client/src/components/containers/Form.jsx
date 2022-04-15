@@ -30,21 +30,21 @@ import { useMoralis, useWeb3ExecuteFunction } from 'react-moralis';
     //   };
 
     //   upload metadata object
-      const uploadMetadata = async (imageUrl) => {
-        const name = document.getElementById("metadataName").value;
-        const description = document.getElementById(
-          "metadataDescription"
-        ).value;
-        const metadata = {
-          name: name,
-          description: description,
-          image: imageUrl,
-        };
-        const file = new Moralis.File("file.json", {
-          base64: btoa(JSON.stringify(metadata))});
-        await file.saveIPFS();
-        console.log(file.ipfs());
-      };
+    //   const uploadMetadata = async (imageUrl) => {
+    //     const name = document.getElementById("metadataName").value;
+    //     const description = document.getElementById(
+    //       "metadataDescription"
+    //     ).value;
+    //     const metadata = {
+    //       name: name,
+    //       description: description,
+    //       image: imageUrl,
+    //     };
+    //     const file = new Moralis.File("file.json", {
+    //       base64: btoa(JSON.stringify(metadata))});
+    //     await file.saveIPFS();
+    //     console.log(file.ipfs());
+    //   };
 
       // write function to submit file
     //   const uploadFile = async () => {
