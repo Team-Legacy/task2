@@ -6,7 +6,7 @@ const { solidity } = require("ethereum-waffle");
 use(solidity);
 
 describe("Nova Legacy Library", function () {
-  let dFtp,owner, addressress1, addressess2;
+  let dFtp,owner, address1, address2;
 
   //  fetch data from gas station
   before((done) => {
