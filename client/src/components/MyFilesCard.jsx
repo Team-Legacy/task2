@@ -113,7 +113,7 @@ export default function MyFilesCard() {
           signer
         );
 
-        const UploadTxn = await dFtpContract.removeSharedPeers(
+        const removeAddressTxn = await dFtpContract.removeSharedPeers(
             id,
             myArray,
 
@@ -122,7 +122,7 @@ export default function MyFilesCard() {
           }
         );
 
-        console.log("Mining...", removeAddress.hash);
+        console.log("Mining...", removeAddressTxn.hash);
         setTimeout(() => {
               setIsSent(true)
           }, 1000);
@@ -184,7 +184,7 @@ export default function MyFilesCard() {
           signer
         );
 
-        const UploadTxn = await dFtpContract.addSharedPeers(
+        const addAddressTxn = await dFtpContract.addSharedPeers(
             id,
             myArray,
 
@@ -193,7 +193,7 @@ export default function MyFilesCard() {
           }
         );
 
-        console.log("Mining...", addAddress.hash);
+        console.log("Mining...", addAddressTxn.hash);
         setTimeout(() => {
               setIsSent(true)
           }, 1000);
@@ -254,7 +254,7 @@ export default function MyFilesCard() {
           signer
         );
 
-        const UploadTxn = await dFtpContract.changeVisibility(
+        const changeVisibilityTxn = await dFtpContract.changeVisibility(
             id,
             visible,
 
@@ -263,7 +263,7 @@ export default function MyFilesCard() {
           }
         );
 
-        console.log("Mining...", changeVisibility.hash);
+        console.log("Mining...", changeVisibilityTxn.hash);
         setTimeout(() => {
               setIsSent(true)
           }, 1000);
