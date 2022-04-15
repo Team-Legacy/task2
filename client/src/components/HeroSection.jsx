@@ -103,7 +103,8 @@ export default function HeroSection() {
                 bg: "orange.600"
               }}
             >
-              Get Started
+              <a href="/myfiles">Get Started</a>
+              
             </Button>
             </Stack>
           </Stack>
@@ -127,10 +128,10 @@ export default function HeroSection() {
           </Flex>
         </Flex>
       </Stack>
-      <Heading py={8} px={{ base: '12px', md: '18px', lg: '30px' }}>Articles</Heading>
+      {/* <Heading py={8} px={{ base: '12px', md: '18px', lg: '30px' }}>Public Library</Heading>
       <ArticleCard />
-      <Heading py={8} px={{ base: '12px', md: '18px', lg: '30px' }}>Books</Heading>
-      <BookCard />
+      <Heading py={8} px={{ base: '12px', md: '18px', lg: '30px' }}>Private Library</Heading>
+      <BookCard /> */}
     </Box>
   )
 }

@@ -12,16 +12,23 @@ import { useColorModeValue,
     IconButton,
     Link,
     Flex,
+      Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
 } from '@chakra-ui/react';
-import { BiCloudDownload, BiShare, BiUpvote } from 'react-icons/bi';
-import Card from './BCard';
+import { BiCloudDownload, BiShare, BiUpvote, BiBulb } from 'react-icons/bi';
+import Card from './ACard';
 // import Button from './button';
 import Form from './containers/Form';
+import { useAuth } from '../context/AuthContext';
 import { ethers } from 'ethers';
 
-import DftpABI from '.././ABI/Dftp.json';
+import DftpABI from '../ABI/Dftp.json';
 
-export default function BookCard() {
+export default function MyFilesCard() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const bg = useColorModeValue("#E5E5E5", "gray.800");
@@ -36,13 +43,15 @@ export default function BookCard() {
       getPublic();
     }, []) ;
 
+    
+
     const getPublic = async () => {
       setIsLoading(true);
     try {
       const { ethereum } = window;
       const contractAddress = "0xb20fbd2A9e9db2ce827BB3d3e02CF627d6660CB9";
       const dftpABI = DftpABI.abi;
-        //setLoading(true);
+        setIsLoading(true);
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         console.log(contractAddress);
@@ -52,19 +61,18 @@ export default function BookCard() {
           dftpABI,
           signer
         );
-
-        const publicData = await dFtpContract.getAllPrivateSharedFiles({
+         console.log("yanick"); 
+        const publicData = await dFtpContract.getAllMyUploadedFiles({
           gasLimit: 300000,
         });
 
-        if(publicData.length == 1 && publicData[0][0]== 0){
-          console.log(publicData[0]);
-        }
-        else{
-          setPdata(publicData);
-        }
+        
+        console.log(publicData);
+        setPdata(publicData);
         setIsLoading(false);
     } catch (error) {
+      console.log("yanick");
+      console.log(error);
       console.log(error.message);
     }
     setIsLoading(false);
@@ -75,14 +83,25 @@ export default function BookCard() {
       <Box px={{ base: '4px', md: '18px'}}>
         <Button 
           bg="orange.700" color="white" 
-          //onClick={onOpen}
+          onClick={onOpen}
           size="md" 
           _hover={{
             bg: "orange.600"
           }}
         >
-          Private Library
+          Add New Item
         </Button>
+
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Info</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Form />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
       </Box>
       <SimpleGrid columns={{sm: 1, md: 2, lg: 3}} gap={4}>
         {pData.map((item) => {
@@ -95,18 +114,19 @@ export default function BookCard() {
                   boxShadow={'2xl'}
                   rounded={'md'}
                   overflow={'hidden'}>
-                    <Image
-                      src={`https://ipfs.io/ipfs/${item[3]}/${item[1]}`}
-                      layout={'cover'}
-                    />
+                   <Image
+                        src={`https://ipfs.io/ipfs/${item[3]}`}
+                        layout={'cover'}
+                      />
+                    
                   <Box px={6} py={4}>
                     <Stack>
-                      <Link href="#">
+                      <Link href={`https://ipfs.io/ipfs/${item[3]}`}>
                         <Heading
                           color={'orange.500'}
                           fontSize={'2xl'}
                           fontFamily={'body'}>
-                          Boost your conversion rate
+                          {item[1]}
                         </Heading>
                       </Link>
                       <Text color={'gray.500'}>
@@ -122,29 +142,34 @@ export default function BookCard() {
                       >
                       <Flex alignItems={'center'} direction={'row' } justifyContent={'center'} fontWeight='700'>
                         <IconButton
-                            aria-label="vote"
+                            aria-label="share"
                             isRound={true}
                             _hover={{ bg: 'orange.700' }}
                             variant="ghost"
                             size="lg"
-                            icon={<BiUpvote size="28px" />}
-                          /> 1
+                            icon={<BiShare size="28px" />}
+                          /> {item[7].length}
                       </Flex>
-                      <IconButton
+                      <Flex alignItems={'center'} direction={'row' } justifyContent={'center'} fontWeight='700'>
+                       <IconButton
                         aria-label="download"
                         variant="ghost"
                         size="lg"
                         isRound={true}
                         _hover={{ bg: 'orange.700' }}
-                        icon={<BiCloudDownload size="28px" />}
-                      />
+                        icon={<BiBulb size="28px" />}
+                      />{item[2]}
+                      </Flex>
+
+
+                      
                       <IconButton
                         aria-label="share"
                         variant="ghost"
                         size="lg"
                         isRound={true}
                         _hover={{ bg: 'orange.700' }}
-                        icon={<BiShare size="28px" />}
+                        icon={<BiUpvote size="28px" />}
                       />
                     </HStack>
                   </Box>

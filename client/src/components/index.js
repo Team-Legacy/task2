@@ -7,3 +7,5 @@ export {default as BookCard} from './BookCard';
 export {default as ACard} from './ACard';
 export {default as BCard} from './BCard';
 export {default as Form} from './containers/Form';
+export {default as MyFilesCard} from './MyFilesCard';
+
