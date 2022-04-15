@@ -1,3 +1,4 @@
+// jshint esversion: 9
 import React, { useContext, useState } from 'react'
 
 const AuthContext = React.createContext();
@@ -14,7 +15,14 @@ export function AuthProvider({ children }) {
     const [ contractAddr, setContractAddr ] = useState()
     const [ addFile, setAddFile ] = useState();
     const [ vote, setVote ] = useState(0)
-    const [ upload, setUpload ] = useState()
+    const [getAllMyUploadedFiles, setGetAllMyUploadedFiles] = useState();
+    const [getAllPublicSharedFiles, setGetAllPublicSharedFiles] = useState();
+    const [getAllPrivateSharedFiles,setGetAllPrivateSharedFiles] = useState();
+    const [changeVisibility,setChangeVisibility] = useState();
+    const [removeSharedPeers,setRemoveSharedPeers] = useState();
+    const [addSharedPeers, setAddSharedPeers] = useState();
+
+
 
 
     const value = {
@@ -23,8 +31,13 @@ export function AuthProvider({ children }) {
         balance, setBalance,
         contractAddr, setContractAddr,
         addFile, setAddFile,
+        getAllMyUploadedFiles,setGetAllMyUploadedFiles,
+        getAllPublicSharedFiles, setGetAllPublicSharedFiles,
+        getAllPrivateSharedFiles,setGetAllPrivateSharedFiles,
+        changeVisibility,setChangeVisibility,
+        removeSharedPeers,setRemoveSharedPeers,
+        addSharedPeers, setAddSharedPeers,
         vote, setVote,
-        upload, setUpload
     }
 
     return (

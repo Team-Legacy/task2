@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { AuthProvider } from './context/AuthContext';
+import { MoralisProvider } from 'react-moralis';
 
 
 const theme = extendTheme({
@@ -23,10 +24,15 @@ const theme = extendTheme({
   }
 })
 
+const APP_ID = "Q5w4ViN0PE1P7JvLi3Lr1eJ2q7nJQ9Gzj8gh5xM0";
+const SERVER_URL = "https://9twp7uqapae7.usemoralis.com:2053/server";
+
 ReactDOM.render(
     <ChakraProvider theme={theme}>
       <AuthProvider>
-        <App />
+        <MoralisProvider appId={APP_ID} serverUrl={SERVER_URL}>
+          <App />
+        </MoralisProvider>
       </AuthProvider>
     </ChakraProvider>,
   document.getElementById('root')

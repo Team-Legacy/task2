@@ -63,8 +63,8 @@ export default function HeroSection() {
 
   return (
     <Box>
-      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }} width={'full'}>
-        <Flex py={8} px={8} flex={1} align={'center'} justify={'center'}>
+      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }} width={'full'} px={8}>
+        <Flex py={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
               <Heading
@@ -117,7 +117,6 @@ export default function HeroSection() {
           {images.map((image, index) => (
             <Image
               display={'inline-block'}
-
               alt={'Login Image'}
               objectFit={'contain'}
               key={index}
