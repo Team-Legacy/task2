@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback ,useRef} from 'react';
 import { useColorModeValue, 
     SimpleGrid, 
     useToast, Stack, useDisclosure,
@@ -38,6 +38,9 @@ export default function MyFilesCard() {
     const [ isLoading, setIsLoading ] = useState()
     const [ isApproved, setIsApproved ] = useState(false)
     const [pData, setPdata] = useState([]);
+    const [ isSent, setIsSent ] = useState(false);
+    const addressRef = useRef();
+    const checkRef = useRef();
 
     useEffect(() => {
       getPublic();
@@ -76,6 +79,218 @@ export default function MyFilesCard() {
       console.log(error.message);
     }
     setIsLoading(false);
+  };
+
+  const removeAddress = async (_id) => {
+    
+    setIsLoading(true);
+    try {
+      const { ethereum } = window;
+
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      
+      
+      const address = addressRef.current.value;// address to be removed
+      var myArray = [address];
+      const id = _id;
+      console.log(myArray);
+      console.log(id);
+
+      if (ethereum) {
+
+        const contractAddress = "0xb20fbd2A9e9db2ce827BB3d3e02CF627d6660CB9";
+        const dftpABI = DftpABI.abi;
+        //setLoading(true);
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        console.log(contractAddress);
+        console.log(dftpABI);
+        const dFtpContract = new ethers.Contract(
+          contractAddress,
+          dftpABI,
+          signer
+        );
+
+        const UploadTxn = await dFtpContract.removeSharedPeers(
+            id,
+            myArray,
+
+          {
+            gasLimit: 3000000,
+          }
+        );
+
+        console.log("Mining...", removeAddress.hash);
+        setTimeout(() => {
+              setIsSent(true)
+          }, 1000);
+          toast({
+              toastID,
+              title: 'Addresses has been removed from Sharing',
+              description: "Please check explorer.",
+              status: 'success',
+              duration: 3000,
+              isClosable: true,
+          })
+      }
+      setIsLoading(false);
+      //handle smartcontract here
+    } catch (error) {
+      setIsLoading(false);
+      toast({
+          toastID,
+          title: 'An Error Occurred',
+          description: error,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+      })
+      console.log(error);
+
+    }
+  };
+
+  const addAddress = async (_id) => {
+    
+    setIsLoading(true);
+    try {
+      const { ethereum } = window;
+
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      
+      
+      const address = addressRef.current.value;// address to be removed
+      var myArray = [address];
+      const id = _id;
+      console.log(myArray);
+      console.log(id);
+
+      if (ethereum) {
+
+        const contractAddress = "0xb20fbd2A9e9db2ce827BB3d3e02CF627d6660CB9";
+        const dftpABI = DftpABI.abi;
+        //setLoading(true);
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        console.log(contractAddress);
+        console.log(dftpABI);
+        const dFtpContract = new ethers.Contract(
+          contractAddress,
+          dftpABI,
+          signer
+        );
+
+        const UploadTxn = await dFtpContract.addSharedPeers(
+            id,
+            myArray,
+
+          {
+            gasLimit: 3000000,
+          }
+        );
+
+        console.log("Mining...", addAddress.hash);
+        setTimeout(() => {
+              setIsSent(true)
+          }, 1000);
+          toast({
+              toastID,
+              title: 'Addresses has been added to Sharing',
+              description: "Please check explorer.",
+              status: 'success',
+              duration: 3000,
+              isClosable: true,
+          })
+      }
+      setIsLoading(false);
+      //handle smartcontract here
+    } catch (error) {
+      setIsLoading(false);
+      toast({
+          toastID,
+          title: 'An Error Occurred',
+          description: error,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+      })
+      console.log(error);
+
+    }
+  };
+
+  const changeVisibility = async (_id) => {
+    
+    setIsLoading(true);
+    try {
+      const { ethereum } = window;
+
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      
+      
+      var visible = checkRef.current.checked;// if private or public, value is true or false
+      const id = _id;
+      console.log(visible);
+      console.log(id);
+
+      if (ethereum) {
+
+        const contractAddress = "0xb20fbd2A9e9db2ce827BB3d3e02CF627d6660CB9";
+        const dftpABI = DftpABI.abi;
+        //setLoading(true);
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        console.log(contractAddress);
+        console.log(dftpABI);
+        const dFtpContract = new ethers.Contract(
+          contractAddress,
+          dftpABI,
+          signer
+        );
+
+        const UploadTxn = await dFtpContract.changeVisibility(
+            id,
+            visible,
+
+          {
+            gasLimit: 3000000,
+          }
+        );
+
+        console.log("Mining...", changeVisibility.hash);
+        setTimeout(() => {
+              setIsSent(true)
+          }, 1000);
+          toast({
+              toastID,
+              title: 'Visibility Status has been changed',
+              description: "Please check explorer.",
+              status: 'success',
+              duration: 3000,
+              isClosable: true,
+          })
+      }
+      setIsLoading(false);
+      //handle smartcontract here
+    } catch (error) {
+      setIsLoading(false);
+      toast({
+          toastID,
+          title: 'An Error Occurred',
+          description: error,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+      })
+      console.log(error);
+
+    }
   };
 
   return (

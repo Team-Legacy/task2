@@ -13,7 +13,7 @@ import { useColorModeValue,
     Link,
     Flex,
 } from '@chakra-ui/react';
-import { BiCloudDownload, BiShare, BiUpvote } from 'react-icons/bi';
+import { BiCloudDownload, BiShare, BiUpvote, BiBulb } from 'react-icons/bi';
 import Card from './BCard';
 // import Button from './button';
 import Form from './containers/Form';
@@ -57,8 +57,8 @@ export default function BookCard() {
           gasLimit: 300000,
         });
 
-        if(publicData.length == 1 && publicData[0][0]== 0){
-          console.log(publicData[0]);
+        if((publicData.length == 1 && publicData[0][0]== 0) || publicData[0][0]== 0){
+          //console.log(publicData[0]);
         }
         else{
           setPdata(publicData);
@@ -95,18 +95,19 @@ export default function BookCard() {
                   boxShadow={'2xl'}
                   rounded={'md'}
                   overflow={'hidden'}>
-                    <Image
-                      src={`https://ipfs.io/ipfs/${item[3]}/${item[1]}`}
-                      layout={'cover'}
-                    />
+                   <Image
+                        src={`https://ipfs.io/ipfs/${item[3]}`}
+                        layout={'cover'}
+                      />
+                    
                   <Box px={6} py={4}>
                     <Stack>
-                      <Link href="#">
+                      <Link href={`https://ipfs.io/ipfs/${item[3]}`}>
                         <Heading
                           color={'orange.500'}
                           fontSize={'2xl'}
                           fontFamily={'body'}>
-                          Boost your conversion rate
+                          {item[1]}
                         </Heading>
                       </Link>
                       <Text color={'gray.500'}>
@@ -122,29 +123,34 @@ export default function BookCard() {
                       >
                       <Flex alignItems={'center'} direction={'row' } justifyContent={'center'} fontWeight='700'>
                         <IconButton
-                            aria-label="vote"
+                            aria-label="share"
                             isRound={true}
                             _hover={{ bg: 'orange.700' }}
                             variant="ghost"
                             size="lg"
-                            icon={<BiUpvote size="28px" />}
-                          /> 1
+                            icon={<BiShare size="28px" />}
+                          /> {item[7].length}
                       </Flex>
-                      <IconButton
+                      <Flex alignItems={'center'} direction={'row' } justifyContent={'center'} fontWeight='700'>
+                       <IconButton
                         aria-label="download"
                         variant="ghost"
                         size="lg"
                         isRound={true}
                         _hover={{ bg: 'orange.700' }}
-                        icon={<BiCloudDownload size="28px" />}
-                      />
+                        icon={<BiBulb size="28px" />}
+                      />{item[2]}
+                      </Flex>
+
+
+                      
                       <IconButton
                         aria-label="share"
                         variant="ghost"
                         size="lg"
                         isRound={true}
                         _hover={{ bg: 'orange.700' }}
-                        icon={<BiShare size="28px" />}
+                        icon={<BiUpvote size="28px" />}
                       />
                     </HStack>
                   </Box>
