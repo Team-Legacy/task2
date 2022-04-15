@@ -29,11 +29,17 @@ describe("Dftp", () => {
       "0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db",
     ];
     expect(id).to.not.be.undefined;
+    assert.isNumber(id, "must be a number");
     expect(name).to.not.be.undefined;
+    assert.isString(name, "must be a string");
     expect(description).to.not.be.undefined;
+    assert.isString(description, "must be a string");
     expect(hashurl).to.not.be.undefined;
+    assert.isString(hashurl, "must be a string");
     expect(category).to.not.be.undefined;
+    assert.isString(category, "must be a string");
     expect(author).to.not.be.undefined;
+    assert.isString(author, "must be a string");
     expect(sharedPeers).to.not.be.empty;
     assert.isArray(sharedPeers, "it should be an array of addresses");
 
@@ -48,7 +54,7 @@ describe("Dftp", () => {
     );
 
     assert.isObject(AddFile, "This should be an object");
-    assert.property(AddFile, "data", "It must have a property data");
+    assert.property(AddFile, "data", "It must have a  data property");
     expect(AddFile).to.not.be.null;
     expect(AddFile).to.not.be.undefined;
     expect(AddFile).to.not.be.NaN;
@@ -56,7 +62,7 @@ describe("Dftp", () => {
   });
   it("get all uploaded files returned as an array", async () => {
     //console.log(await deployedContract.getAllUploadedFiles());
-    // assert.isArray(await deployedContract.getAllUploadedFiles());
+    assert.isArray(await deployedContract.getAllUploadedFiles());
   });
   it("get all private files accessible to an address", async () => {
     assert.isArray(
