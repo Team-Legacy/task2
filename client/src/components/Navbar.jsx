@@ -18,8 +18,9 @@ import Button from './LoginButton';
 
 const Links = [
   {a: '/', text: 'Home'},
-  {a: '/article', text: 'Articles'}, 
-  {a: '/book', text: 'Books'}, 
+  {a: '/public', text: 'Public Library'}, 
+  {a: '/private', text: 'Private Library'}, 
+  {a: '/myfiles', text: 'My Library'}, 
 ];
 
 

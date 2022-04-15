@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ArticleCard, BookCard, Footer, HeroSection, Navbar } from './components';
+import { ArticleCard, BookCard, Footer, HeroSection, Navbar, MyFilesCard } from './components';
+import { useAuth } from './context/AuthContext';
 
 
 const App = () => {
@@ -12,8 +13,9 @@ const App = () => {
       <Navbar />
         <Routes>
           <Route path="/" element={<HeroSection />} />
-          <Route path="/article" element={<ArticleCard />} />
-          <Route path="/book" element={<BookCard />} />
+          <Route path="/public" element={<ArticleCard />} />
+          <Route path="/private" element={<BookCard />} />
+          <Route path="/myfiles" element={<MyFilesCard />} />
         </Routes>
         <Footer />
       </BrowserRouter>
