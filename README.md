@@ -47,3 +47,7 @@ Allows for the download of all the public files visible to a specific address
 
 ## 4. Get all Private files visible to an address:
 Just like the get public files. The get private files allows specific addresses listed to get particular private files that not available to everyone
+
+https://kovan.etherscan.io/address/0xb20fbd2a9e9db2ce827bb3d3e02cf627d6660cb9#code
+
+
