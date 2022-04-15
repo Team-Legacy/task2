@@ -373,7 +373,7 @@ export default function MyFilesCard() {
                         isRound={true}
                         _hover={{ bg: 'orange.700' }}
                         icon={<BiBulb size="28px" />}
-                      />{item[2]}
+                      />{item[6]}
                       </Flex>
 
 
