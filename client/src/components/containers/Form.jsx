@@ -38,7 +38,7 @@ import { Web3Storage } from "web3.storage/dist/bundle.esm.min.js";
     
     function randomId() {
     const uint32 = window.crypto.getRandomValues(new Uint32Array(1))[0];
-    return uint32.toString(3);
+    return uint32.toString(16);
     }
 
     
@@ -78,7 +78,7 @@ import { Web3Storage } from "web3.storage/dist/bundle.esm.min.js";
       });
       
 
-      const visible = checkRef.current.checked;
+      const visible = !checkRef.current.checked;
 
       const name = NamecRef.current.value;
       const description = descripRef.current.value;
@@ -86,13 +86,13 @@ import { Web3Storage } from "web3.storage/dist/bundle.esm.min.js";
       const category = "image";
       const sharedPeers = [];
       const createdAt = Date.now();
-      const id = createdAt+randomId();
+      const id = createdAt+randomId().substring(1,3);
       console.log(description);
       console.log(name);
       console.log(cid);
       console.log(category);
       console.log(createdAt);
-      console.log(visible);
+      console.log(!visible);
       console.log(sharedPeers);
       console.log(id);
 

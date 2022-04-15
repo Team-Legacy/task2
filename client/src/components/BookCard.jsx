@@ -57,12 +57,21 @@ export default function BookCard() {
           gasLimit: 300000,
         });
 
-        if((publicData.length == 1 && publicData[0][0]== 0) || publicData[0][0]== 0){
-          //console.log(publicData[0]);
+        // if((publicData.length == 1 && publicData[0][0]== 0) || publicData[0][0]== 0){
+        //   //console.log(publicData[0]);
+        // }
+        // else{
+        //   setPdata(publicData);
+        // }
+
+        var data = [];
+        console.log(publicData);
+        for(let i=0; i<publicData.length;i++){
+          if(publicData[i][0] != 0){
+            data.push(publicData[i]);
+          }
         }
-        else{
-          setPdata(publicData);
-        }
+        setPdata(data);
         setIsLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -113,46 +122,14 @@ export default function BookCard() {
                       <Text color={'gray.500'}>
                         {item[2]}
                       </Text>
+                      <Text color={'gray.500'}>
+                      {'Created Date: '+new Date(+item[8]).toLocaleString()}
+                    </Text>
+
+                    <Text color={'gray.500'}>
+                      {'Owner: \n'+item[5]}
+                    </Text>
                     </Stack>
-                    <HStack
-                      mt={{ lg: 10, md: 10 }}
-                      spacing={5}
-                      px={5}
-                      alignItems="flex-start"
-                      justifyContent={'space-between'}
-                      >
-                      <Flex alignItems={'center'} direction={'row' } justifyContent={'center'} fontWeight='700'>
-                        <IconButton
-                            aria-label="share"
-                            isRound={true}
-                            _hover={{ bg: 'orange.700' }}
-                            variant="ghost"
-                            size="lg"
-                            icon={<BiShare size="28px" />}
-                          /> {item[7].length}
-                      </Flex>
-                      <Flex alignItems={'center'} direction={'row' } justifyContent={'center'} fontWeight='700'>
-                       <IconButton
-                        aria-label="download"
-                        variant="ghost"
-                        size="lg"
-                        isRound={true}
-                        _hover={{ bg: 'orange.700' }}
-                        icon={<BiBulb size="28px" />}
-                      />{item[2]}
-                      </Flex>
-
-
-                      
-                      <IconButton
-                        aria-label="share"
-                        variant="ghost"
-                        size="lg"
-                        isRound={true}
-                        _hover={{ bg: 'orange.700' }}
-                        icon={<BiUpvote size="28px" />}
-                      />
-                    </HStack>
                   </Box>
                 </Box>
               </Center>
